@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>
+無有花艺
+</title>
+<meta property="wb:webmaster" content="37f07d4f7ef506bb" />
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+	$(function(){
+		opening();
+	});
+
+</script>
+<style type="text/css">
+.opening { 
+	display: none; 
+	position: absolute; 
+	z-index: 100; 
+	top: 0; 
+	left: 0; 
+	width: 100%; 
+	height: 100%; 
+	overflow: hidden; 
+	background-color: rgb(247,231,232);
+}
+.loading {
+	position: absolute;
+	z-index: 80;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+.body{
+	background-color: rgb(247,231,232);
+}
+
+#openimg{
+	position: absolute;
+	z-index: 1000
+}
+
+</style>
+	 <!-- 百度统计 -->
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?9458251e415648f43388091da2fa1eda";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body class="body">
+<div style="display:none">
+<a href="MY/index.php">mooi you</a>
+<a href="gallery3/index.php">gallery3</a>
+<a href="wordpress/index.php">wordpress</a>
+</div>
+<div id="loading" class="loading">Loading......</div>
+<div class="opening">
+	<img id = "openimg" src="./images/open.gif">
+</div>
+</body>
+</html>

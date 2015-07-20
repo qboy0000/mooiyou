@@ -1,0 +1,18 @@
+<div class="footer">
+<p class="info">
+
+Powered by <strong><a href="http://www.lmooie.cn" target="_blank">MooiYou</a></strong> &copy; 2015 <img src="{IMG_PATH}copyright.gif"/>{tjcode()}{php echo runhook('glogal_footer')} | <a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备15035299号</a>
+</p>
+</div>
+<script type="text/javascript">
+$(function(){
+	$(".picbig").each(function(i){
+		var cur = $(this).find('.img-wrap').eq(0);
+		var w = cur.width();
+		var h = cur.height();
+	   $(this).find('.img-wrap img').LoadImage(true, w, h,'{IMG_PATH}msg_img/loading.gif');
+	});
+})
+</script>
+</body>
+</html>
