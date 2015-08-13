@@ -59,7 +59,7 @@ class Albums_Controller extends Items_Controller {
     } else if ($page > $max_pages) {
       url::redirect($album->abs_url("page=$max_pages"));
     }
-
+    $five_items = $album->viewable()->children(5, 0);
     $template = new Theme_View("page.html", "collection", "album");
     $template->set_global(
       array("page" => $page,
@@ -67,6 +67,7 @@ class Albums_Controller extends Items_Controller {
             "max_pages" => $max_pages,
             "page_size" => $page_size,
             "item" => $album,
+            "fiveitems" => $five_items,
             "children" => $album->viewable()->children($page_size, $offset),
             "parents" => $album->parents()->as_array(), // view calls empty() on this
             "breadcrumbs" => Breadcrumb::array_from_item_parents($album),

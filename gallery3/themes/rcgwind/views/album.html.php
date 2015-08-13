@@ -4,6 +4,49 @@
   <?= $theme->album_top() ?>
   <h1><?= html::purify($item->title) ?></h1>
   <div class="g-description"><?= nl2br(html::purify($item->description)) ?></div>
+    <script type="text/javascript">
+      $(window).load(function(){      
+
+        $(".slideshow-standard").sliderkit({
+          autospeed:3000,
+          circular:true,
+          fastchange:false
+        });
+        
+        // Slideshow > Carousel
+        $(".slideshow-carousel").sliderkit({
+          shownavitems:4,
+          autospeed:3000,
+          mousewheel:true,
+          circular:true
+        });
+        
+        var mySliderkit = $(".slideshow-carousel").data('sliderkit');
+        $("#slideshow-apibtn").toggle(
+          function(){
+            mySliderkit.playBtnPause();return false;
+          },
+          function(){
+            mySliderkit.playBtnStart();return false;
+          }
+        );
+        
+      });
+    </script> 
+</div>
+
+<div id="show_page" style="padding-left:100px; display:none">
+  <div class="sliderkit slideshow-standard" style="display: block;"> 
+    <div class="sliderkit-panels"> 
+
+    <? foreach ($fiveitems as $key => $c): ?>
+      <div class="sliderkit-panel" style="display: block;"> 
+          <img src="<?= $c->resize_url() ?>" width="500" height="335">
+        </div>
+    <? endforeach ?>
+
+    </div> 
+  </div>
 </div>
 
 <ul id="g-album-grid" class="ui-helper-clearfix">

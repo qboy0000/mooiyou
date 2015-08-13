@@ -736,6 +736,21 @@ class Item_Model_Core extends ORM_MPTT {
     return "<img" . html::attributes($attrs) . "/>";
   }
 
+    /**
+   * Return an <img> tag for the resize.
+   * @param array $extra_attrs  Extra attributes to add to the img tag
+   * @return string
+   */
+  public function show_img($extra_attrs) {
+    $attrs = array_merge($extra_attrs,
+            array("src" => $this->resize_url(),
+                  "alt" => $this->title,
+                  "width" => 500)
+            );
+    // html::image forces an absolute url which we don't want
+    return "<img" . html::attributes($attrs) . "/>";
+  } 
+
   /**
    * Return a view for movies.  By default this is a Flowplayer v3 <script> tag, but
    * movie_img events can override this and provide their own player/view.  If no player/view

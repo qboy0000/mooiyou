@@ -7,17 +7,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <? $theme->start_combining("script,css") ?>
     <title>
-      <? if ($page_title): ?>
-        <?= $page_title ?>
-      <? else: ?>
-        <? if ($theme->item()): ?>
-          <?= html::purify($theme->item()->title) ?>
-        <? elseif ($theme->tag()): ?>
-          <?= t("Photos tagged with %tag_title", array("tag_title" => $theme->tag()->name)) ?>
-        <? else: /* Not an item, not a tag, no page_title specified.  Help! */ ?>
-          <?= html::purify(item::root()->title) ?>
-        <? endif ?>
-      <? endif ?>
+      mooiyou
     </title>
     <link rel="shortcut icon"
           href="<?= url::file(module::get_var("gallery", "favicon_url")) ?>"
@@ -52,6 +42,7 @@
     <?= $theme->script("superfish/js/superfish.js") ?>
     <?= $theme->script("jquery.localscroll.js") ?>
 
+
     <? /* These are page specific but they get combined */ ?>
     <? if ($theme->page_subtype == "photo"): ?>
     <?= $theme->script("jquery.scrollTo.js") ?>
@@ -68,8 +59,14 @@
     <?= $theme->css("superfish/css/superfish.css") ?>
     <?= $theme->css("themeroller/ui.base.css") ?>
     <?= $theme->css("screen.css") ?>
+
+    <?= $theme->css("sliderkit-core.css") ?>
+    <?= $theme->css("sliderkit-demos.css") ?>
+    <?= $theme->css("sliderkit-site.css") ?>
+
     <? if (locales::is_rtl()): ?>
     <?= $theme->css("screen-rtl.css") ?>
+
     <? endif; ?>
     <!--[if lte IE 8]>
     <link rel="stylesheet" type="text/css" href="<?= $theme->url("css/fix-ie.css") ?>"
@@ -91,9 +88,11 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
+    <?= $theme->script("jquery.sliderkit.1.9.1.pack.js") ?>
   </head>
 
-  <body <?= $theme->body_attributes() ?>>
+  <body <?= $theme->body_attributes() ?> 
+    onselectstart= "return false;" oncontextmenu="return false" onpaste= "return false " oncopy= "return false; " oncut= "return false; ">
     <?= $theme->page_top() ?>
     <div id="doc4" class="yui-t5 g-view">
       <?= $theme->site_status() ?>
