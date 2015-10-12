@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta charset="utf-8">
+	<meta name="keywords" content="  ">
+	<meta name="description" content="  ">
+
+	<title></title>
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<script src="./js/hwt.js"></script><script type="text/javascript">
+		if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
+			var version = parseFloat(RegExp.$1);
+			if(version>2.3){
+				var phoneScale = parseInt(window.screen.width)/750;
+				document.write('<meta name="viewport" content="width=750, minimum-scale = '+ phoneScale +', maximum-scale = '+ phoneScale +', target-densitydpi=device-dpi">');
+			}else{
+				document.write('<meta name="viewport" content="width=750, target-densitydpi=device-dpi">');
+			}
+		}else{
+			document.write('<meta name="viewport" content="width=750, user-scalable=no, target-densitydpi=device-dpi">');
+		}
+	</script>
+	<meta name="viewport" content="width=750, user-scalable=no, target-densitydpi=device-dpi">
+
+	<link rel="stylesheet" type="text/css" href="./css/swiper.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body ontouchmove="event.preventDefault();">
+	<img src="./img/shareImg.jpg" width="0" height="0">
+	<!-- <div id="app-loadingBg" class="app-loadingBg">
+	    <div id="perNum" class="perNum">0%</div>
+	</div> -->
+
+	<div id="page1" class="page page1 cur">
+
+		
+		<img src="./img/p0-1.jpg" class="fadeIn delay05">
+		<img src="./img/p0-2.png" class="p0_2" style="display:none;">
+		<div class="maskGrey" style="display: none;">
+			
+			<div class="popTips">
+				<img src="./img/p0-3.png" class="fadeInUp">
+				<div class="btn btnSubF"></div>
+			</div>
+		</div>
+		<div class="slideWrap">
+			<div class="closeCon">
+				<div style="background:#000;width:100%;height:100%;position:absolute;z-index:9;">
+					<img src="./img/closeLight.png" class="lightS" style="width:100%;position:absolute;top:0;left:0;">
+					<img src="./img/closeBg.png" style="width:100%;position:absolute;top:0;left:0;z-index:9;">
+				</div>
+				<div class="slideCon">
+					<div class="btnClose" id="dragIcon"><img src="./img/closeBar.png"></div>
+				</div>
+				<span class="icoCancel"><img src="./img/cancle.png"></span>
+			</div>
+		</div>
+
+		<div class="doneCon">
+			<img src="./img/load.gif" class="loadGif fadeInOut">
+			<img src="./img/load02.gif" class="loadGif02 fadeInOut">
+			<img src="./img/p1-1-3.png" class="fadeIn delay60">
+			<div style="position:absolute;z-index:10;top:0;left:0;width:100%;height:100%;" class="fadeOut delay100">
+				<img src="./img/p1-1-1.png" class="p1_1 fadeIn delay68">
+				<img src="./img/p1-1-2.png" class="p1_2 fadeIn delay75">
+			</div>
+
+			<div class="moonCon" style="z-index:12;">
+				<div style="position:absolute;z-index:8;top:0;left:0;width:100%;height:100%;" class="fadeInS delay10">
+					<div class="" style="position:absolute;z-index:7;top:0;left:0;width:100%;height:100%;">
+						<img src="./img/moon.png" class="p1_5 moonMove delay10">
+					</div>
+					<div class="delay05" style="position:absolute;z-index:8;top:0;left:0;width:100%;height:100%;">
+						<img src="./img/p0-9.png" style="z-index:20;" class=" ">
+					</div>
+
+					<img src="./img/star01.png" class="star delay12">
+					<img src="./img/star02.png" class="star delay18">
+					<img src="./img/star03.png" class="star delay10">
+					<img src="./img/star04.png" class="star delay15">
+
+
+					<div class="fadeOut3 delay75" style="width: 100%;height: 100%;position: absolute;top: 0;left: 0;">
+						<img src="./img/p0-4-1.png" class="p1_6 fadeIn delay18">
+						<img src="./img/p0-4-2.png" class="p1_7 fadeIn delay25">
+						<img src="./img/p0-4-3.png" class="p1_8 fadeIn delay34">
+					</div>
+					
+					<img src="./img/p0-4-4.png" class="p1_10 fadeIn delay85">
+					<img src="./img/p0-4-5.png" class="p1_11 fadeIn delay90">
+					<img src="./img/p0-5.png" class="p1_9 fadeIn delay100">
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+<script src="./js/zepto.min.js"></script>	
+<script src="./js/main.js"></script>
+
+<script>
+	var sharetitle='';
+	var descContent='一份特别的中秋礼物，等待接收！';
+	var lineLink='http://www.lmooie.cn/moonFestivals/';
+	var imgUrl='http://www.lmooie.cn/moonFestivals/img/shareImg.jpg';
+	</script>
+<script>
+	$(function(){
+		setTimeout(function(){
+			$('.p0_2,.maskGrey').show();
+		},1000)
+
+		//$('.doneCon').show();
+
+		var el = document.querySelector('.btnClose');
+        var startPosition, endPosition, deltaX, deltaY, moveLength;
+
+        el.addEventListener('touchstart', function (e) {
+            var touch = e.touches[0];
+            startPosition = {
+                x: touch.pageX,
+                y: touch.pageY
+            }
+        });
+
+        el.addEventListener('touchmove', function (e) {
+            var touch = e.touches[0];
+            endPosition = {
+                x: touch.pageX,
+                y: touch.pageY
+            }
+
+            deltaX = endPosition.x - startPosition.x;
+            deltaY = endPosition.y - startPosition.y;
+            moveLength = Math.floor(Math.sqrt(Math.pow(Math.abs(deltaX), 2) + Math.pow(Math.abs(deltaY), 2)));
+            //console.log(moveLength);
+            setBtn(moveLength);
+        });
+
+        el.addEventListener('touchend', function (e) {
+        	if(moveLength>400){
+        		$('.doneCon').show();
+		        showMoon();
+		        $('.slideWrap').hide();
+        	}else{
+        		icoL = 0;
+        		$('.btnClose').css({'left':icoL});
+        		$('.closeCon').css({'opacity':1});
+        	}
+        });
+        
+	})
+</script>
+	 <!-- 百度统计 -->
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?9458251e415648f43388091da2fa1eda";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</body></html>
